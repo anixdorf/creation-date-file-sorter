@@ -1,0 +1,4 @@
+tqdm
+hachoir
+python-dateutil
+pywin32 ; sys_platform == 'win32'
