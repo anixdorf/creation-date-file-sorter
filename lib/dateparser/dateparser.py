@@ -93,7 +93,7 @@ class DateParser:
 
                     parsed_date = datetime.strptime(date_str, fmt)
 
-                    if 1990 <= parsed_date.year <= 2040:
+                    if 1980 <= parsed_date.year <= 2050:
                         self.logger.debug(
                             f"Parsed '{date_str}' with pattern '{pattern.pattern}'"
                         )
@@ -135,8 +135,9 @@ class DateParser:
             day_present = str(parsed_date.day) in parsed_string
 
             if month_present and day_present:
-                self.logger.debug(f"Parsed '{text}' using dateutil")
-                return parsed_date
+                if 1980 <= parsed_date.year <= 2050:
+                    self.logger.debug(f"Parsed '{text}' using dateutil")
+                    return parsed_date
 
         except (ValueError, OverflowError, TypeError):
             pass
